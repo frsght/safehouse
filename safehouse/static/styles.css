@@ -1,0 +1,164 @@
+/* Базовые стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+#header {
+    text-align: center;
+    font-size: 36px;
+    padding: 20px;
+    background-color: rgba(0, 123, 255, 0.9); /* Синий с прозрачностью */
+    color: white;
+    margin-bottom: 30px;
+    word-wrap: break-word; /* Чтобы длинные слова не выходили за пределы */
+    white-space: normal; /* Позволяет переносить длинные слова */
+}
+
+/* Стили для полей ввода */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Отступ между полями */
+    box-sizing: border-box; /* Учитывать паддинги и бордер в ширине */
+}
+
+.input-field:focus {
+    border-color: rgba(0, 123, 255, 1); /* Синий цвет при фокусе */
+    outline: none;
+}
+
+
+/* Блок для отображения панелей с размытиями */
+.blurred-panel {
+    background: rgba(173, 216, 230, 0.8); /* Голубой с прозрачностью */
+    padding: 30px;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.locker-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.auth-section {
+    text-align: center;
+}
+
+.primary-button, .secondary-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-align: center;
+    margin: 10px 0;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.primary-button {
+    background-color: rgba(0, 123, 255, 1); /* Синий */
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: rgba(0, 123, 255, 0.8); /* Синий с прозрачностью */
+}
+
+.secondary-button {
+    background-color: rgba(173, 216, 230, 1); /* Голубой */
+    color: #007bff; /* Синий */
+    border: 1px solid #007bff; /* Синий */
+}
+
+.secondary-button:hover {
+    background-color: rgba(173, 216, 230, 0.8); /* Голубой с прозрачностью */
+}
+
+/* Alert styles */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-success {
+    background-color: rgba(0, 123, 255, 0.1); /* Синий с легким фоном */
+    color: #0056b3; /* Темно-синий */
+}
+
+.alert-warning {
+    background-color: rgba(173, 216, 230, 0.3); /* Голубой с прозрачностью */
+    color: #856404;
+}
+
+.alert-danger {
+    background-color: rgba(255, 99, 71, 0.1); /* Красный с легким фоном */
+    color: #721c24;
+}
+
+.close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    #header {
+        font-size: 28px;
+        padding: 15px;
+    }
+
+    .blurred-panel {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .locker-image {
+        max-width: 100%;
+    }
+
+    .primary-button, .secondary-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .alert {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        font-size: 22px;
+        padding: 10px;
+    }
+
+    .primary-button, .secondary-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .alert {
+        font-size: 12px;
+    }
+}

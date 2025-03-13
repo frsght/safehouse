@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="header">Регистрация</div>
+
+    <div class="blurred-panel auth-section">
+        <h3>Давайте создадим вам аккаунт</h3>
+        <p>Заполните данные о себе.</p>
+
+        <form action="/signup" method="POST">
+            {% csrf_token %}
+
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username" required class="input-field">
+
+            <label for="fname">Имя</label>
+            <input type="text" id="fname" name="fname" required class="input-field">
+
+            <label for="lname">Фамилия</label>
+            <input type="text" id="lname" name="lname" required class="input-field">
+
+            <label for="email">Электронная почта</label>
+            <input type="email" id="email" name="email" required class="input-field">
+
+            <label for="password1">Пароль</label>
+            <input type="password" id="password1" name="password1" required class="input-field">
+
+            <label for="password2">Подтвердите пароль</label>
+            <input type="password" id="password2" name="password2" required class="input-field">
+
+            <button type="submit" class="primary-button">Зарегистрироваться</button>
+        </form>
+    </div>
+
+    <script src="" async defer></script>
+</body>
+</html>

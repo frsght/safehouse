@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Аренда шкафчика #{{ id }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="header">Аренда шкафчика #{{ id }}</div>
+
+    <div class="blurred-panel">
+        {% if user.is_authenticated %}
+        <h3>Информация о шкафчике #{{ id }}</h3>
+        <p>Расположение: {{ location }}</p>
+        <p>Размер: {{ size }}</p>
+
+        <form action="{% url 'startrental' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="lockerid" value="{{ id }}">
+            <button type="submit" class="primary-button">Арендовать шкафчик</button>
+        </form>
+
+        {% else %}
+        <h1>Вы не зарегистрированы!</h1>
+        <div class="auth-buttons">
+            <button class="primary-button"><a href="/signup">Регистрация</a></button>
+            <button class="secondary-button"><a href="/signin">Войти</a></button>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="" async defer></script>
+</body>
+</html>

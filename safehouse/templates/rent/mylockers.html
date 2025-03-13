@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой шкафчик</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="header">Ваш арендованный шкафчик</div>
+
+    <div class="blurred-panel">
+        {% if locker %}
+            <p><strong>Локация:</strong> {{ locker.location }}</p>
+            <p><strong>Размер:</strong> {{ locker.size }}</p>
+            <p><strong>Статус:</strong> {% if locker.isopen %} Свободен {% else %} Занят {% endif %}</p>
+
+            <form action="{% url 'openlocker' %}" method="post" class="locker-action-form" style="margin-bottom: 20px;">
+                {% csrf_token %}
+                <input type="hidden" name="lockerid" value="{{ locker.id }}">
+                <button type="submit" class="primary-button">Открыть шкафчик</button>
+            </form>
+
+            <form action="{% url 'endrental' %}" method="post" class="locker-action-form">
+                {% csrf_token %}
+                <input type="hidden" name="lockerid" value="{{ locker.id }}">
+                <button type="submit" class="secondary-button">Завершить аренду</button>
+            </form>
+        {% else %}
+            <p>У вас нет арендованных шкафчиков.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+

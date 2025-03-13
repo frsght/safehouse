@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Safehouse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <h1>Safehouse</h1>
+    </header>
+
+    <!-- Blurred Panel for Messages -->
+    <div class="blurred-panel">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <strong>Message:</strong> {{ message }}
+            <button class="close" aria-label="Close">&times;</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Blurred Panel for Body -->
+    <div class="blurred-panel">
+        <div id="body">
+            <img src="{% static 'images/locker.jpg' %}" alt="Lockers" class="locker-image">
+        </div>
+
+        <!-- Authentication Section -->
+        <div class="auth-section">
+            {% if user.is_authenticated %}
+            <h3>Здравствуйте, {{ fname }}</h3>
+            <p>Вы успешно вошли в аккаунт. Можете приступить к аренде. Отсканируйте QR-код.</p>
+            <button class="primary-button"><a href="/signout" style="color: white;">Sign Out</a></button>
+            {% else %}
+            <button class="primary-button"><a href="/signup" style="color: white;">Зарегистрироваться</a></button>
+            <button class="secondary-button"><a href="/signin" style="color: #4CAF50;">Войти</a></button>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

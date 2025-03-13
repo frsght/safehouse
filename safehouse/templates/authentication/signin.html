@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Authentication</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <!-- Заголовок страницы -->
+        <div id="header">Вход</div>
+
+        <!-- Блок с размытиями для формы аутентификации -->
+        <div class="blurred-panel auth-section">
+            <h3>С возвращением!</h3>
+            <p>Введите данные для входа.</p>
+
+            <!-- Форма для ввода данных -->
+            <form action="/signin" method="POST">
+                {% csrf_token %}
+
+                <!-- Поле ввода имени -->
+                <label for="username">Имя</label>
+                <input type="text" id="username" name="username" required class="input-field">
+
+                <!-- Поле ввода пароля -->
+                <label for="password1">Пароль</label>
+                <input type="password" id="password1" name="password1" required class="input-field">
+
+                <!-- Кнопка для отправки формы -->
+                <button type="submit" class="primary-button">Войти</button>
+            </form>
+        </div>
+
+        <!-- Подключение скриптов (если нужно) -->
+        <script src="" async defer></script>
+    </body>
+</html>
